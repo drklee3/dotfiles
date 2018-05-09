@@ -68,8 +68,8 @@ label-padding = 0
 type = internal/date
 interval = 1
 
-date = %b %m, %Y
-time = %H:%M:%S
+date = %a %y%m%d
+time = %I:%M:%S %p
 label = %date% | %time%
 label-padding = 5
 label-background = ${colors.background}
@@ -81,8 +81,8 @@ label-foreground = ${colors.white}
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-format-prefix = 
-format-prefix-padding = 0
+; format-prefix = 
+; format-prefix-padding = 0
 format-background = ${colors.background}
 format-foreground = ${colors.blue}
 index-sort = true
