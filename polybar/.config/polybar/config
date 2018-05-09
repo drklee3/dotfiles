@@ -39,7 +39,7 @@ border-left-size = 400
 border-right-size = 400
 border-top-size = 15
 
-font-0 = Ubuntu:weight=bold:pixelsize=11;3
+font-0 = SF Mono:weight=Bold:pixelsize=11;3
 font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=11;3"
 font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=11;3"
 font-3 = "Font Awesome 5 Brands:pixelsize=11;3"
@@ -62,7 +62,7 @@ format-prefix-padding-left = 5
 format-background = ${colors.background}
 format-foreground = ${colors.blue}
 label = %title:0:32:...%
-label-padding = 5
+label-padding = 0
 
 [module/date]
 type = internal/date
@@ -70,7 +70,7 @@ interval = 1
 
 date = %b %m, %Y
 time = %H:%M:%S
-label =   %date%  |  %time%
+label = %date% | %time%
 label-padding = 5
 label-background = ${colors.background}
 label-foreground = ${colors.white}
@@ -82,17 +82,17 @@ label-foreground = ${colors.white}
 type = internal/i3
 format = <label-state> <label-mode>
 format-prefix = 
-format-prefix-padding = 5
+format-prefix-padding = 0
 format-background = ${colors.background}
 format-foreground = ${colors.blue}
 index-sort = true
 wrapping-scroll = false
 
-label-focused-padding = 5
+label-focused-padding = 0
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.blue}
 
-label-unfocused-padding = 5
+label-unfocused-padding = 0
 label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.white}
 
@@ -104,15 +104,15 @@ interval = 3.0
 
 format-connected-background = ${colors.background}
 format-connected-foreground = ${colors.green}
-format-connected =    <label-connected>
-format-connected-padding = 5
+format-connected =   <label-connected>
+format-connected-padding = 0
 label-connected = %essid%
 
 format-disconnected-background = ${colors.background}
 format-disconnected-foreground = ${colors.red}
 format-disconnected = <label-disconnected>
-format-disconnected-padding = 5
-label-disconnected =    Disconnected
+format-disconnected-padding = 0
+label-disconnected = Disconnected
 
 ;---------------------------------------
 ; Settings
