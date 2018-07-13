@@ -54,6 +54,7 @@ module-margin = 1
 
 tray-position = right
 
+
 ;---------------------------------------
 ; Left modules
 ;---------------------------------------
@@ -125,7 +126,7 @@ interval = 1
 date = %a %y%m%d
 time = %I:%M:%S %p
 label = %date% | %time%
-label-padding = 5
+label-padding = 0
 label-background = ${colors.background}
 label-foreground = ${colors.white}
 
