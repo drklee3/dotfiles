@@ -1,6 +1,4 @@
 set nocompatible
-set number
-
 filetype indent plugin on
 syntax on
 set hlsearch
@@ -15,7 +13,6 @@ set nostartofline
 set ruler
 set laststatus=2
 
-set confirm
 set visualbell
 
 set mouse=a
@@ -23,14 +20,26 @@ set shiftwidth=2
 set shiftwidth=2
 set expandtab
 
-filetype off
+set shell=/bin/sh
+set number relativenumber
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" PLUGINS
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'wakatime/vim-wakatime'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
+Plug 'itchyny/lightline.vim'
+Plug 'rust-lang/rust.vim'
 
-call vundle#end()
-filetype plugin indent on
+Plug 'ayu-theme/ayu-vim'
+
+call plug#end()
+
+set laststatus=2  " enable lightline
+set noshowmode    " hide default mode status
+
+" set termguicolors     " enable true colors support
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+
