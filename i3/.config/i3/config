@@ -199,6 +199,9 @@ bindsym $mod+r mode "resize"
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# Compton (transparent Polybar)
+exec --no-startup-id compton
+
 # Gaps
 gaps inner 10
 gaps outer 10
