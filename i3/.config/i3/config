@@ -252,7 +252,9 @@ bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 
 # Screenshots
-bindsym Print exec bash ~/Scripts/screenshot.sh
+# bindsym Print exec bash ~/Scripts/screenshot.sh
+bindsym Print exec "teiler --quick image fullscreen"
+bindsym $mod+Print exec "teiler --quick image area"
 
 # Rofi
 bindsym $mod+d exec "rofi -show run"
