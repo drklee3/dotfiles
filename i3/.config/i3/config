@@ -30,7 +30,8 @@ font pango: SF Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -252,8 +253,8 @@ bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 
 # Screenshots
-# bindsym Print exec bash ~/Scripts/screenshot.sh
-bindsym Print exec "teiler --quick image fullscreen"
+bindsym Print exec bash ~/Scripts/screenshot.sh
+# bindsym Print exec "teiler --quick image fullscreen"
 bindsym $mod+Print exec "teiler --quick image area"
 
 # Rofi
