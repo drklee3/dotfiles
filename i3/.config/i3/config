@@ -172,6 +172,7 @@ client.placeholder      #1E1F29 #1E1F29 #EBECE6 #1E1F29   #1E1F29
 
 client.background       #FFFFFF
 
+<<<<<<< HEAD
 # bar {
 #  colors {
 #    background #000000
@@ -185,20 +186,25 @@ client.background       #FFFFFF
 #    binding_mode       #1E1F29 #FC4346 #FFFFFF
 #  }
 #}
+bar {
+  status_command i3status
+  colors {
+    background #000000
+    statusline #FFFFFF
+    separator  #666666
+
+    focused_workspace  #49BAFF #49BAFF #FFFFFF
+    active_workspace   #1E1F29 #1B1F29 #FFFFFF
+    inactive_workspace #1E1F29 #1E1F29 #CCCCCC
+    urgent_workspace   #1E1F29 #FC4346 #FFFFFF
+    binding_mode       #1E1F29 #FC4346 #FFFFFF
+  }
+}
 
 # dmenu custom colors
 # bindsym $mod+d exec "dmenu_run -nf '#FFFFFF' -nb '#1E1F29' -sb '#49BAFF' -sf '#1E1F29' -fn 'monospace-10' -p 'dmenu >'"
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#     i3bar_command $HOME/.config/polybar/launch.sh
-# }
-
-# Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Compton (transparent Polybar)
 exec --no-startup-id compton
