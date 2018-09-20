@@ -172,20 +172,6 @@ client.placeholder      #1E1F29 #1E1F29 #EBECE6 #1E1F29   #1E1F29
 
 client.background       #FFFFFF
 
-<<<<<<< HEAD
-# bar {
-#  colors {
-#    background #000000
-#    statusline #FFFFFF
-#    separator  #666666
-#
-#    focused_workspace  #49BAFF #49BAFF #FFFFFF
-#    active_workspace   #1E1F29 #1B1F29 #FFFFFF
-#    inactive_workspace #1E1F29 #1E1F29 #CCCCCC
-#    urgent_workspace   #1E1F29 #FC4346 #FFFFFF
-#    binding_mode       #1E1F29 #FC4346 #FFFFFF
-#  }
-#}
 bar {
   status_command i3status
   colors {
@@ -207,7 +193,7 @@ bar {
 bindsym $mod+r mode "resize"
 
 # Compton (transparent Polybar)
-exec --no-startup-id compton
+# exec --no-startup-id compton
 
 # Gaps
 gaps inner 10
