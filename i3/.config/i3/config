@@ -253,4 +253,4 @@ bindsym Print exec bash ~/Scripts/screenshot.sh
 bindsym $mod+Print exec "teiler --quick image area"
 
 # Rofi
-bindsym $mod+d exec "rofi -show run"
+bindsym $mod+d exec "dmenu_run"
