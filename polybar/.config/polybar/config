@@ -151,7 +151,8 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python ~/.config/polybar/spotify.py -f '{artist} - {song}'
+exec = python ~/.config/polybar/spotify.py -f '{play_pause} {artist} - {song}'
+click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 [module/temperature]
 type = internal/temperature
