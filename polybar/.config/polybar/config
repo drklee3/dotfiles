@@ -1,161 +1,240 @@
-;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
-
-;---------------------------------------
-; Visual
-;---------------------------------------
 [colors]
-background = #1E1F29
-foreground = #1E1F29
-gray = #555555
-red = #fc4346
-yellow = #f0fb8c
-blue = #49baff
-green = #50fb7c
-white = #ededec
+icon         = #4ec2f7
+fg          = #002636
+bg	    = #e4e4e4
 
-;---------------------------------------
-; Bars
-;---------------------------------------
-[bar/bar1]
-monitor = HDMI-0
-fixed-center = true
+[bar/top]
+monitor = eDP1
 width = 100%
-height = 38
+height = 24
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-line-color = ${colors.foreground}
-line-size = 1
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
-border-color = #00000000
-border-left-size = 300
-border-right-size = 300
-border-top-size = 15
+background = #00000000
+foreground = #ccffffff
 
-font-0 = SF Mono:weight=Bold:pixelsize=11;3
-font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=11;3"
-font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=11;3"
-font-3 = "Font Awesome 5 Brands:pixelsize=11;3"
+line-color = ${bar/bottom.background}
+line-size = 16
 
-cursor-click = pointer
-cursor-scroll = ns-resize
+spacing = 2
+padding-right = 1
+module-margin = 4
 
-modules-left = i3 xwindow
-modules-right = cpu isrunning-openvpn music date
-module-margin = 1
+font-0 = SF Mono:size=10;2
+font-1 = Noto Sans Mono CJK TC:size=10;2
+font-2 = Noto Color Emoji:style=Regular:scale=10;1
+font-3 = Font Awesome 5 Free:style=Solid:pixelsize=10;1
+font-4 = Font Awesome 5 Brands:style=Regular:pixelsize=10;1
 
-tray-position = right
+modules-left = i3
+modules-right = openweathermap date
+modules-center = title
 
+[bar/bottom]
+monitor = eDP1
+bottom = true
+width = 100%
+height = 24
 
-;---------------------------------------
-; Left modules
-;---------------------------------------
-[module/xwindow]
-type = internal/xwindow
-; format-prefix = 
-; format-prefix-padding-left = 5
-format-background = ${colors.background}
-format-foreground = ${colors.white}
-label = %title:0:48:...%
-label-padding = 2
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
 
+line-color = ${bar/top.background}
+line-size = 2
 
-;---------------------------------------
-; Center modules
-;---------------------------------------
+spacing = 3
+padding-right = 1
+module-margin-left = 0
+module-margin-right = 6
+
+font-0 = SF Mono:size=10
+font-1 = Noto Sans Mono CJK TC:size=10
+font-2 = Noto Color Emoji:style=Regular:scale=10
+font-3 = Font Awesome 5 Free:style=Solid:pixelsize=10;1
+font-4 = Font Awesome 5 Brands:style=Regular:pixelsize=10;1
+
+modules-left = network ping updates
+modules-right = cpu memory temperature filesystem
+modules-center = spotify volume
+
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
-; format-prefix = 
-; format-prefix-padding = 0
-format-background = ${colors.background}
-format-foreground = ${colors.blue}
-index-sort = true
+pin-workspaces = false
+strip-wsnumbers = true
 wrapping-scroll = false
+format = <label-state><label-mode>
+label-focused = ${self.workspace-label}
+label-unfocused = ${self.workspace-label}
+label-urgent = ${self.workspace-label}
+label-visible = ${self.workspace-label}
 
-label-focused-padding = 0
-label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.blue}
-
-label-unfocused-padding = 0
-label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${colors.white}
-
-;---------------------------------------
-; Right modules
-;---------------------------------------
+workspace-label = %index%
+label-mode = %mode%
+label-focused-background = ${colors.bg}
+label-focused-foreground = ${colors.fg}
+label-unfocused-foreground = ${colors.bg}
+label-unfocused-padding = 1
+label-visible-padding = 1
+label-urgent-padding = 1
+label-mode-padding = 1
+label-focused-padding = 1
 
 [module/cpu]
 type = internal/cpu
-interval = 1
+interval = 0.5
+format = <label> <ramp-load>
+label = CPU %percentage:3%%
 
-format = <label> 
-label = CPU %percentage%
-label-background = ${colors.background}
-label-foreground = ${colors.white}
-
-[module/isrunning-openvpn]
-type = custom/script
-exec = ~/.config/polybar/isrunning-openvpn.sh
-interval = 30
-label-background = ${colors.background}
-label-foreground = ${colors.white}
-
-[module/wifi]
-type = internal/network
-interface = wlp10s0
-interval = 3.0
-
-format-connected-background = ${colors.background}
-format-connected-foreground = ${colors.green}
-format-connected =   <label-connected>
-format-connected-padding = 0
-label-connected = %essid%
-
-format-disconnected-background = ${colors.background}
-format-disconnected-foreground = ${colors.red}
-format-disconnected = <label-disconnected>
-format-disconnected-padding = 0
-label-disconnected = Disconnected
-
-[module/music]
-type = custom/script
-exec = ~/.config/polybar/playerctl.sh
-exec-if = ~/.config/polybar/playerctl-if.sh
-interval = 1
-format = <label>
-label = %output:0:25%
-label-background = ${colors.background}
-label-foreground = ${colors.white}
+ramp-load-0 = ▁
+ramp-load-0-font = 0
+ramp-load-0-foreground = #aaff77
+ramp-load-1 = ▂
+ramp-load-1-font = 0
+ramp-load-1-foreground = #aaff77
+ramp-load-2 = ▃
+ramp-load-2-font = 0
+ramp-load-2-foreground = #aaff77
+ramp-load-3 = ▄
+ramp-load-3-font = 0
+ramp-load-3-foreground = #aaff77
+ramp-load-4 = ▅
+ramp-load-4-font = 0
+ramp-load-4-foreground = #fba922
+ramp-load-5 = ▆
+ramp-load-5-font = 0
+ramp-load-5-foreground = #fba922
+ramp-load-6 = ▇
+ramp-load-6-font = 0
+ramp-load-6-foreground = #ff5555
+ramp-load-7 = █
+ramp-load-7-font = 0
+ramp-load-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
+date =  %%{F#fff}%A %y%m%d%%{F-}  %%{F#fff}%I:%M:%S%%{F-}
+
+[module/memory]
+type = internal/memory
+format = <label> <ramp-used>
+label = RAM %percentage_used:3%%
+
+ramp-used-0 = ▁
+ramp-used-0-font = 0
+ramp-used-0-foreground = #aaff77
+ramp-used-1 = ▂
+ramp-used-1-font = 0
+ramp-used-1-foreground = #aaff77
+ramp-used-2 = ▃
+ramp-used-2-font = 0
+ramp-used-2-foreground = #aaff77
+ramp-used-3 = ▄
+ramp-used-3-font = 0
+ramp-used-3-foreground = #aaff77
+ramp-used-4 = ▅
+ramp-used-4-font = 0
+ramp-used-4-foreground = #fba922
+ramp-used-5 = ▆
+ramp-used-5-font = 0
+ramp-used-5-foreground = #fba922
+ramp-used-6 = ▇
+ramp-used-6-font = 0
+ramp-used-6-foreground = #ff5555
+ramp-used-7 = █
+ramp-used-7-font = 0
+ramp-used-7-foreground = #ff5555
+
+
+[module/spotify]
+type = custom/script
 interval = 1
+format-prefix = " "
+format = <label>
+exec = python ~/.config/polybar/spotify.py -f '{artist} - {song}'
 
-date = %a %y%m%d
-time = %I:%M:%S %p
-label = %date% | %time%
-label-padding = 0
-label-background = ${colors.background}
-label-foreground = ${colors.white}
+[module/temperature]
+type = internal/temperature
+format = <label> <ramp>
+label = TEMP %temperature-c:3%
+thermal-zone = 5
 
-;---------------------------------------
-; Settings
-;---------------------------------------
-[settings]
-screenchange-reload = true
+ramp-0 = ▁
+ramp-0-font = 0
+ramp-0-foreground = #aaff77
+ramp-1 = ▂
+ramp-1-font = 0
+ramp-1-foreground = #aaff77
+ramp-2 = ▃
+ramp-2-font = 0
+ramp-2-foreground = #aaff77
+ramp-3 = ▄
+ramp-3-font = 0
+ramp-3-foreground = #aaff77
+ramp-4 = ▅
+ramp-4-font = 0
+ramp-4-foreground = #fba922
+ramp-5 = ▆
+ramp-5-font = 0
+ramp-5-foreground = #fba922
+ramp-6 = ▇
+ramp-6-font = 0
+ramp-6-foreground = #ff5555
+ramp-7 = █
+ramp-7-font = 0
+ramp-7-foreground = #ff5555
 
-[global/wm]
-margin-top = 0
-margin-bottom = 0
 
-; vim:ft=dosini
+[module/network]
+type = internal/network
+interface = wlp3s0
+interval = 3.0
+label-connected = %{O4} %local_ip% ↓ %downspeed% ↑ %upspeed%
+label-disconnected-foreground = #66
+
+[module/volume]
+type = internal/alsa
+master-mixer = Master
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 15
+
+format-volume = <label-volume> <ramp-volume>
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+label-muted = muted 🔇
+
+[module/clock]
+type = internal/date
+interval = 2
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/updates.sh
+interval = 600
+
+[module/title]
+type = internal/xwindow
+label = %title%
+label-maxlen = 75
+
+[module/openweathermap]
+type = custom/script
+exec = ~/.config/polybar/openweathermap.sh
+interval = 600
+
+[module/ping]
+type = custom/script
+exec = ~/.config/polybar/ping.sh
+interval = 30
+
+
+[module/filesystem]
+type = internal/fs
+mount-0 = /home
+interval = 60
+label-mounted = %mountpoint% %used% / %total% (%percentage_used%%)
 
 

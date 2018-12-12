@@ -172,21 +172,6 @@ client.placeholder      #1E1F29 #1E1F29 #EBECE6 #1E1F29   #1E1F29
 
 client.background       #FFFFFF
 
-bar {
-  status_command i3status
-  colors {
-    background #000000
-    statusline #FFFFFF
-    separator  #666666
-
-    focused_workspace  #49BAFF #49BAFF #FFFFFF
-    active_workspace   #1E1F29 #1B1F29 #FFFFFF
-    inactive_workspace #1E1F29 #1E1F29 #CCCCCC
-    urgent_workspace   #1E1F29 #FC4346 #FFFFFF
-    binding_mode       #1E1F29 #FC4346 #FFFFFF
-  }
-}
-
 # dmenu custom colors
 # bindsym $mod+d exec "dmenu_run -nf '#FFFFFF' -nb '#1E1F29' -sb '#49BAFF' -sf '#1E1F29' -fn 'monospace-10' -p 'dmenu >'"
 
@@ -248,11 +233,13 @@ bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 
 # Screenshots
-bindsym Print exec bash ~/Scripts/screenshot.sh
+bindsym Print exec "maim -s | xclip -selection clipboard -t image/png"
 # bindsym Print exec "teiler --quick image fullscreen"
 bindsym $mod+Print exec "teiler --quick image area"
 
 # Rofi
 bindsym $mod+d exec "dmenu_run"
 
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/small_memory-mikael_gustafsson.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/small_memory-mikael_gustafsson.jpg &
+
+exec_always --no-startup-id /home/drk/.config/polybar/launch.sh &
