@@ -241,5 +241,5 @@ bindsym $mod+Print exec "teiler --quick image area"
 bindsym $mod+d exec "dmenu_run"
 
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/small_memory-mikael_gustafsson.jpg &
-
+exec --no-startup-id compton -b
 exec_always --no-startup-id /home/drk/.config/polybar/launch.sh &
