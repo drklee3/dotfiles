@@ -16,9 +16,10 @@ set laststatus=2
 set visualbell
 
 set mouse=a
-set shiftwidth=2
-set shiftwidth=2
+set softtabstop=0
 set expandtab
+set shiftwidth=4
+set smarttab
 
 set shell=/bin/sh
 set number relativenumber
