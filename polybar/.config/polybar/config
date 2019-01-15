@@ -83,7 +83,7 @@ label-focused-padding = 1
 
 [module/cpu]
 type = internal/cpu
-interval = 0.5
+interval = 10
 format = <label><ramp-load> |
 label = CPU %percentage:3%%
 
@@ -118,6 +118,7 @@ date = | %%{F#fff}%A %y%m%d%%{F-} | %%{F#fff}%I:%M:%S%%{F-}
 
 [module/memory]
 type = internal/memory
+interval = 10
 format = <label><ramp-used> |
 label = MEM %percentage_used:3%%
 
@@ -156,6 +157,7 @@ click-left = dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/
 
 [module/temperature]
 type = internal/temperature
+interval = 10
 format = <label><ramp> |
 label = %temperature-c:3%
 thermal-zone = 5
