@@ -238,7 +238,7 @@ bindsym Print exec "maim -s | xclip -selection clipboard -t image/png"
 bindsym $mod+Print exec "teiler --quick image area"
 
 # Rofi
-bindsym $mod+d exec "dmenu_run"
+bindsym $mod+d exec "rofi -show"
 
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/small_memory-mikael_gustafsson.jpg &
 exec --no-startup-id compton -b
