@@ -23,8 +23,10 @@
     orientation: horizontal;
 }
 
+
 #mainbox {
     spacing: 0;
+    background-color: transparent;
     children: [ inputbar, message, listview ];
 }
 
@@ -35,10 +37,12 @@
 }
 
 #inputbar {
+    background-color: transparent;
     padding: 20px 0 10px 0;
     color: @foreground;
 }
 #entry,prompt,case-indicator {
+    background-color: transparent;
     text-font: inherit;
     text-color:inherit;
 }
@@ -48,67 +52,27 @@
 #listview {
     padding: 0;
     dynamic: false;
+    background-color: transparent;
 }
 #element {
     padding: 5px;
     vertical-align: 0.5;
     color: @foreground;
     font-size: 10px;
+    background-color: #ffffff00;
 }
 #element selected.normal {
     background-color: @foreground;
     color: @dark;
 }
 #element normal active {
+    background-color: #ffffff;
     foreground: @foreground-alt;
 	color: @highlight;
-}
-#element normal urgent {
-    foreground: #ff332299;
-}
-
-#element alternate active {
-    foreground: @foreground-alt;
-	color: @foreground;
-}
-#element alternate urgent {
-    foreground: #ff332299;
-}
-#element selected active {
-    background-color: @foreground-alt;
-    foreground: @foreground;
-}
-#element selected urgent {
-    background-color: #ff332299;
-    foreground: @dark;
 }
 #vertb {
     expand: false;
     children: [ dummy0, sidebar, dummy1  ];
-}
-
-
-#sidebar {
-    expand: false;
-    orientation: vertical;
-    spacing: 0;
-    border: 0;
-}
-#button {
-    font: "Cantarell 18";
-    padding: 6px;
-    border: 2px 0px 2px 2px;
-    border-radius: 4px 0px 0px 4px;
-    background-color: @dark;
-    border-color: @foreground;
-    color: @foreground;
-    horizontal-align: 0.5;
-}
-#button selected normal {
-    color: @dark;
-    border: 2px 0px 2px 2px;
-    background-color: @backlight;
-    border-color: @foreground;
 }
 
 
