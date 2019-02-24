@@ -33,6 +33,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'rust-lang/rust.vim'
 
 Plug 'ayu-theme/ayu-vim'
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
