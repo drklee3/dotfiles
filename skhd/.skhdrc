@@ -171,6 +171,7 @@ alt - r ; resize
 # from 'resize' mode, activate mode 'default'
 # (this is the keypress required to leave resize mode)
 resize < escape ; default
+resize < alt - r ; default
 
 # resize window in different directions
 resize < j : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
