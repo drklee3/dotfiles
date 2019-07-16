@@ -23,6 +23,8 @@ set expandtab
 set shell=/bin/sh
 set number relativenumber
 
+set cc=80
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf'
