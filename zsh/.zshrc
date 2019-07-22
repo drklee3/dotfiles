@@ -3,13 +3,11 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/drk/.oh-my-zsh"
-
 export PATH=/usr/local/bin:$PATH
 
-# FIXME Where you keep your Celo stuff
+# Celo stuff
 export CELO_ROOT=$HOME/celo
-
-# FIXME Your github handle
+# GitHub
 export HANDLE=drklee3
 
 # Run SSH Agent. Use ssh-add to add and remember keys for the session.
@@ -58,8 +56,7 @@ done
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-alias celotooljs="$CELO_ROOT/celo-monorepo/packages/celotool/bin/celotooljs.sh"
-
+# Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ZSH_THEME=""
@@ -77,4 +74,8 @@ setopt HIST_FIND_NO_DUPS # no adjacent dupes
 autoload -U promptinit; promptinit
 prompt pure
 export PURE_PROMPT_SYMBOL="→"
+
+# Aliases
+alias icat="kitty +kitten icat"
+alias celotooljs="$CELO_ROOT/celo-monorepo/packages/celotool/bin/celotooljs.sh"
 
