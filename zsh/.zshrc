@@ -79,3 +79,6 @@ export PURE_PROMPT_SYMBOL="→"
 alias icat="kitty +kitten icat"
 alias celotooljs="$CELO_ROOT/celo-monorepo/packages/celotool/bin/celotooljs.sh"
 
+# fzf fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files'
