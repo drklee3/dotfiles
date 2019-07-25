@@ -3,3 +3,5 @@ name = Derrick Lee
 email = derrick@dlee.dev
 [core]
 pager = less -FRX
+[commit]
+gpgsign = true
