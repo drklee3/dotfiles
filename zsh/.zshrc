@@ -53,6 +53,8 @@ for cmd in "${NODE_GLOBALS[@]}"; do
   eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
 done
 
+export NODE_OPTIONS="--max-old-space-size=4096"
+
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
