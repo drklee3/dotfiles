@@ -7,6 +7,7 @@ export PATH=/usr/local/bin:$PATH
 
 # Celo stuff
 export CELO_ROOT=$HOME/celo
+export VM_BASED=false
 # GitHub
 export HANDLE=drklee3
 
@@ -15,6 +16,7 @@ export HANDLE=drklee3
 eval `ssh-agent &> /dev/null`
 
 export ANDROID_HOME=/usr/local/share/android-sdk
+export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 export ANDROID_NDK=/usr/local/share/android-ndk
 
 export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$PATH
