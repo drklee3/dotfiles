@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/drk/.oh-my-zsh"
+export ZSH="/home/drk/.oh-my-zsh"
 export PATH=/usr/local/bin:$PATH
 
 # Celo stuff
@@ -13,7 +13,7 @@ export HANDLE=drklee3
 
 # Run SSH Agent. Use ssh-add to add and remember keys for the session.
 # celo-monorepo will need you to do this with your github key when updating geth dependencies.
-eval `ssh-agent &> /dev/null`
+{eval "$(ssh-agent)"} &> /dev/null
 
 export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
@@ -40,25 +40,25 @@ export GRADLE_OPTS='-Dorg.gradle.daemon=true -Dorg.gradle.parallel=true -Dorg.gr
 # [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # Add every binary that requires nvm, npm or node to run to an array of node globals
-NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-NODE_GLOBALS+=("node")
-NODE_GLOBALS+=("nvm")
+# NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+# NODE_GLOBALS+=("node")
+# NODE_GLOBALS+=("nvm")
 
 # Lazy-loading nvm + npm on node globals call
-load_nvm () {
-  export NVM_DIR=~/.nvm
-  [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
-}
+# load_nvm () {
+#   export NVM_DIR=~/.nvm
+#   [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
+# }
 
 # Making node global trigger the lazy loading
-for cmd in "${NODE_GLOBALS[@]}"; do
-  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-done
+# for cmd in "${NODE_GLOBALS[@]}"; do
+#   eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+# done
 
-export NODE_OPTIONS="--max-old-space-size=4096"
+# export NODE_OPTIONS="--max-old-space-size=4096"
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -75,6 +75,7 @@ bindkey '^N' history-substring-search-down
 setopt HIST_FIND_NO_DUPS # no adjacent dupes
 
 # Pure theme
+fpath+=("$HOME/.zsh/pure")
 autoload -U promptinit; promptinit
 prompt pure
 export PURE_PROMPT_SYMBOL="→"
