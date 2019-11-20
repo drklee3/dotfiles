@@ -1,0 +1,78 @@
+* {
+    foreground:  #ffffff;
+    foreground-alt: #666666;
+
+    backlight:   #ffeeee;
+    background-color:  #00000010;
+    backgroud-alt: #222222;
+    highlight: underline bold #ffffff;
+
+    highlight: #59c2ff;
+
+    font: "Noto Sans Mono 11";
+    dark: #10081Add;
+}
+#window {
+    transparency: "screenshot";
+    padding: 350px 700px 350px 700px;
+    border:  0px;
+    color: @foreground;
+    background-color: @dark;
+    spacing: 0;
+    children:  [vertb, mainbox];
+    orientation: horizontal;
+}
+
+
+#mainbox {
+    spacing: 0;
+    background-color: transparent;
+    children: [ inputbar, message, listview ];
+}
+
+#message 
+{
+    border: none;
+    padding: 5;
+}
+
+#inputbar {
+    background-color: transparent;
+    padding: 20px 0 10px 0;
+    color: @foreground;
+}
+#entry,prompt,case-indicator {
+    background-color: transparent;
+    text-font: inherit;
+    text-color:inherit;
+}
+#prompt {
+    margin:     0px 0.3em 0em 0em ;
+}
+#listview {
+    padding: 0;
+    dynamic: false;
+    background-color: transparent;
+}
+#element {
+    padding: 5px;
+    vertical-align: 0.5;
+    color: @foreground;
+    font-size: 10px;
+    background-color: #ffffff00;
+}
+#element selected.normal {
+    background-color: @foreground;
+    color: @dark;
+}
+#element normal active {
+    background-color: #ffffff;
+    foreground: @foreground-alt;
+	color: @highlight;
+}
+#vertb {
+    expand: false;
+    children: [ dummy0, sidebar, dummy1  ];
+}
+
+
