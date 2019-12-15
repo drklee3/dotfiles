@@ -75,10 +75,10 @@ bindkey '^N' history-substring-search-down
 setopt HIST_FIND_NO_DUPS # no adjacent dupes
 
 # Pure theme
-fpath+=("$HOME/.zsh/pure")
-autoload -U promptinit; promptinit
-prompt pure
-export PURE_PROMPT_SYMBOL="→"
+# fpath+=("$HOME/.zsh/pure")
+# autoload -U promptinit; promptinit
+# prompt pure
+# export PURE_PROMPT_SYMBOL="→"
 
 # Aliases
 alias icat="kitty +kitten icat"
@@ -102,3 +102,6 @@ ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in Ma
 # fzf fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files'
+
+eval "$(starship init zsh)"
+
