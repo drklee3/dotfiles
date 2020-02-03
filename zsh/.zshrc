@@ -97,6 +97,7 @@ alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
 alias which='type'                          # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+alias fh ='feh --scale-down --auto-zoom --auto-rotate' # feh: Fit images and auto rotate
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 
 # fzf fuzzy finder
