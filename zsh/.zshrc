@@ -8,12 +8,11 @@ export PATH=/usr/local/bin:$PATH
 # Celo stuff
 export CELO_ROOT=$HOME/celo
 export VM_BASED=false
+
 # GitHub
 export HANDLE=drklee3
-
-# Run SSH Agent. Use ssh-add to add and remember keys for the session.
-# celo-monorepo will need you to do this with your github key when updating geth dependencies.
-{eval "$(ssh-agent)"} &> /dev/null
+# https://stackoverflow.com/questions/41052538/git-error-gpg-failed-to-sign-data
+export GPG_TTY=$(tty)
 
 export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
@@ -35,38 +34,27 @@ export EDITOR=vim
 
 export GRADLE_OPTS='-Dorg.gradle.daemon=true -Dorg.gradle.parallel=true -Dorg.gradle.jvmargs="-Xmx4096m -XX:+HeapDumpOnOutOfMemoryError"'
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
-# Add every binary that requires nvm, npm or node to run to an array of node globals
-# NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-# NODE_GLOBALS+=("node")
-# NODE_GLOBALS+=("nvm")
-
-# Lazy-loading nvm + npm on node globals call
-# load_nvm () {
-#   export NVM_DIR=~/.nvm
-#   [ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"
-# }
-
-# Making node global trigger the lazy loading
-# for cmd in "${NODE_GLOBALS[@]}"; do
-#   eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-# done
-
-# export NODE_OPTIONS="--max-old-space-size=4096"
-
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
+# Load nvm faster
+if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type -f __init_nvm)" = function ]; then
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+	declare -a __node_commands=(nvm `find -L $NVM_DIR/versions/*/*/bin -type f -exec basename {} \; | sort -u`)
+	function __init_nvm() {
+		for i in "${__node_commands[@]}"; do unalias $i; done
+		. "$NVM_DIR"/nvm.sh
+		unset __node_commands
+		unset -f __init_nvm
+	}
+	for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
+fi
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Oh my Zsh
 ZSH_THEME=""
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting history-substring-search)
-
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting history-substring-search)
+plugins=(git history-substring-search ssh-agent rust)
 source $ZSH/oh-my-zsh.sh
 
 # Binds
