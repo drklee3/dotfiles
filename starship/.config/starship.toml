@@ -1,8 +1,13 @@
 [character]
-symbol = "➜"
+error_symbol = "[✗](bold red) "
+
+[battery]
+full_symbol = "🔋 "
+charging_symbol = "⚡️ "
 
 [[battery.display]]
-threshold = 30
+threshhold = 10
+style = "bold red"
 
 [directory]
 truncate_to_repo = false
