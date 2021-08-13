@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/drk/.oh-my-zsh"
+export ZSH="/Users/drk/.oh-my-zsh"
 export PATH=/usr/local/bin:$PATH
 
 # Celo stuff

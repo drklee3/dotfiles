@@ -6,7 +6,7 @@ full_symbol = "🔋 "
 charging_symbol = "⚡️ "
 
 [[battery.display]]
-threshhold = 10
+threshold = 10
 style = "bold red"
 
 [directory]
